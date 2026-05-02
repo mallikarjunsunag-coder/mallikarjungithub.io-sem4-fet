@@ -8,7 +8,7 @@
       background: #eef2f3;
     }
     #container {
-      width: 450px;
+      width: 300px;
       margin: auto;
       padding: 20px;
       background: #fff;
@@ -24,7 +24,7 @@
       width: auto;
     }
     table {
-      width: 90%;
+      width: 80%;
       margin: 20px auto;
       border-collapse: collapse;
       background: white;
@@ -58,13 +58,13 @@
     <option value="">Select</option>
     <option>Excellent</option>
     <option>Good</option>
-    <option>Average</option>
+    <option>poor</option>
   </select>
 
   Interests (Checkbox):
   <input type="checkbox" name="interest" value="Design" class="inline"> Design
-  <input type="checkbox" name="interest" value="Speed" class="inline"> Speed
-  <input type="checkbox" name="interest" value="Content" class="inline"> Content
+  <input type="checkbox" name="interest" value="Speed" class="inline"> coding
+  <input type="checkbox" name="interest" value="Content" class="inline"> Content Creater
   <br><br>
 
   Features (List Box):
@@ -96,21 +96,20 @@ function submitFeedback() {
   let name = document.getElementById("username").value;
   let rating = document.getElementById("rating").value;
 
-  // Gender
+
   let gender = "";
   let radios = document.getElementsByName("gender");
   for (let r of radios) {
     if (r.checked) gender = r.value;
   }
 
-  // Checkboxes
   let interests = [];
   let checks = document.getElementsByName("interest");
   for (let c of checks) {
     if (c.checked) interests.push(c.value);
   }
 
-  // List box
+
   let features = [];
   let featureSelect = document.getElementById("features");
   for (let opt of featureSelect.options) {
@@ -126,7 +125,7 @@ function submitFeedback() {
 
   error.innerHTML = "";
 
-  // Add to table
+  
   let table = document.getElementById("feedbackTable");
   let row = table.insertRow();
 

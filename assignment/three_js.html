@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Feedback Form</title>
+  <style>
+    #container {
+      width: 400px;
+      margin: auto;
+      padding: 20px;
+      background: #f2f2f2;
+      border-radius: 10px;
+    }
+    #result {
+      margin-top: 15px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
 
+<div id="container">
+  <h2>Feedback Form</h2>
+
+  <!-- Text Input -->
+  Name: <input type="text" id="username"><br><br>
+
+  <!-- Radio Buttons -->
+  Gender:
+  <input type="radio" name="gender" value="Male"> Male
+  <input type="radio" name="gender" value="Female"> Female<br><br>
+
+  <!-- Select Box -->
+  Rating:
+  <select id="rating">
+    <option value="">Select</option>
+    <option value="Excellent">Excellent</option>
+    <option value="Good">Good</option>
+    <option value="Average">Average</option>
+  </select><br><br>
+
+  <!-- Button -->
+  <button onclick="submitFeedback()">Submit</button>
+
+  <!-- Div for Output -->
+  <div id="result"></div>
+</div>
+
+<script>
+function submitFeedback() {
+  let name = document.getElementById("username").value;
+  let rating = document.getElementById("rating").value;
+
+  let gender = "";
+  let radios = document.getElementsByName("gender");
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      gender = radios[i].value;
+    }
+  }
+
+  let resultDiv = document.getElementById("result");
+
+  if (name === "" || gender === "" || rating === "") {
+    resultDiv.style.color = "red";
+    resultDiv.innerHTML = "Please fill all fields!";
+    return;
+  }
+
+  resultDiv.style.color = "green";
+  resultDiv.innerHTML = 
+    "Thank you, " + name + "!<br>" +
+    "Gender: " + gender + "<br>" +
+    "Rating: " + rating;
+}
+</script>
+
+</body>
+</html>
